@@ -4,8 +4,12 @@ import { Route, Link, Redirect } from 'react-router-dom'
 import Home from './Home'
 import Runs from './Runs'
 import Header from './elements/Header'
+import MyAccount from './MyAccount'
 
 const Restrito = props => {
+    if(props.auth.isSigninin){
+        return <p>Loading...</p>
+    }
     if(!props.auth.isAuth){
         return <Redirect to='/login' />
     }
@@ -14,6 +18,7 @@ const Restrito = props => {
             <Header />
             <Route exact path={`${props.match.path}/`} component={Home} />
             <Route path={`${props.match.path}/runs`} component={Runs} />
+            <Route path={`${props.match.path}/my-account`} component={MyAccount} />
         </div>
         )
     }
