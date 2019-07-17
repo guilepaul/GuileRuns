@@ -40,8 +40,7 @@ export function* auth(){
 export function* updateProfile(action){
     const token = localStorage.getItem('token')
     const userToSave = {
-        unit: action.user.unit,
-        timezone: action.user.timezone
+        ...action.user
     }
     const user = yield axios.patch(`http://localhost:3001/users/${action.user.id}`, userToSave, {
         headers:{

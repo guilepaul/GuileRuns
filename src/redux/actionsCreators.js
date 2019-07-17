@@ -23,6 +23,7 @@ export const {
     createRunSuccess: ['run'],
     createRunFailure: ['error'],
 
+    updateProfileReset: null,
     updateProfileRequest: ['user'],
     updateProfileSuccess: ['user'],
     updateProfileFailure: ['error']
