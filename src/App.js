@@ -10,6 +10,7 @@ import { Container } from 'semantic-ui-react'
 import store from './redux'
 import { Provider } from 'react-redux'
 import { Route, BrowserRouter as Router } from 'react-router-dom'
+import CreateAccount from './screens/CreateAccount'
 
 
 
@@ -26,6 +27,7 @@ class App extends Component {
             <Route path='/admin' component={Admin} />
             <Route path='/restrito' component={Restrito} />
             <Route path='/login' component={Login} />            
+            <Route path='/create-account' component={CreateAccount} />            
           </Container>
         </Router>
       </Provider>

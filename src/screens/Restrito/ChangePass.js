@@ -3,12 +3,6 @@ import ActionCreators from '../../redux/actionsCreators'
 import { connect } from 'react-redux'
 import {  Button, Segment, Form } from 'semantic-ui-react'
 
-import timezones from 'moment-timezone/data/meta/latest.json'
-
-import Distance from '../elements/Distance'
-import Duration from '../elements/Duration'
-import DateStr from '../elements/DateStr'
-
 class ChangePass extends Component{
     state = {
         passwd: '',

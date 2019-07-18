@@ -8,7 +8,7 @@ import MyAccount from './MyAccount'
 import ChangePass from './ChangePass'
 
 const Restrito = props => {
-    if(props.auth.isSigninin){
+    if(props.auth.isSigningin){
         return <p>Loading...</p>
     }
     if(!props.auth.isAuth){
