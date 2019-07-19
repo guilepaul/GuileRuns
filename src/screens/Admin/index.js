@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Link, Redirect } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Header from './elements/Header'

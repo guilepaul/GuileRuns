@@ -3,7 +3,7 @@ import { Types } from '../actionsCreators'
 
 import ActionCreators from '../actionsCreators'
 
-import { getRuns, createRun } from './runs'
+import { getRuns, createRun, removeRun } from './runs'
 import { auth, login, destroyAuth, updateProfile, createProfile } from './auth'
 
 
@@ -14,6 +14,7 @@ export default function* rootSaga() {
         takeLatest(Types.AUTH_REQUEST, auth),
         takeLatest(Types.GET_RUNS_REQUEST, getRuns),
         takeLatest(Types.CREATE_RUN_REQUEST, createRun),
+        takeLatest(Types.REMOVE_RUN_REQUEST, removeRun),
         takeLatest(Types.DESTROY_AUTH_REQUEST, destroyAuth),
         takeLatest(Types.UPDATE_PROFILE_REQUEST, updateProfile),
         takeLatest(Types.CREATE_PROFILE_REQUEST, createProfile),

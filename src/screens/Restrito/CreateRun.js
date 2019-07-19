@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import ActionCreators from '../../redux/actionsCreators'
 import { connect } from 'react-redux'
 import {  Button, Segment, Form } from 'semantic-ui-react'
+import { Redirect } from 'react-router-dom'
 
 import InputMoment from 'input-moment'
 import 'input-moment/dist/input-moment.css'
 import moment from 'moment'
-import momentTz from 'moment-timezone'
 
 class CreateRun extends Component{     
     state = {
@@ -25,7 +25,7 @@ class CreateRun extends Component{
         })
     }
     handleSave = () => {
-        const d = momentTz.tz(this.state.created, this.props.auth.user.timezone)
+        const d = moment.tz(this.state.created, this.props.auth.user.timezone)
         const d2 = d.clone().utc().format('YYYY-MM-DD H:mm:ss')
         const distance = this.state.distance
         this.props.create({
@@ -35,12 +35,18 @@ class CreateRun extends Component{
             created: d2
         })
     }
-    render(){               
+    render(){
+        if(this.props.runs.saved){
+            return <Redirect to='/restrito/runs' />
+        }               
         return(
             <div>
-                <h1>Criar corrida</h1>                
+                <h1>Criar corrida</h1>
                 {
-                    !this.props.auth.saved && 
+                    this.props.runs.saved && <Segment color='green'>Corrida criada com sucesso!</Segment>
+                }                
+                {
+                    !this.props.runs.saved && 
                     <Form>
                         <Form.Field>
                             <label>Nome:</label>
@@ -74,13 +80,14 @@ class CreateRun extends Component{
 
 const mapStateToProps = state => {
     return {
-        auth: state.auth
+        auth: state.auth,
+        runs: state.runs
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
         create: (run) => dispatch(ActionCreators.createRunRequest(run)),
-        reset: () => dispatch(ActionCreators.updateProfileReset())
+        reset: () => dispatch(ActionCreators.createRunReset())
     }
 }
 
