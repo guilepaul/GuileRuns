@@ -19,6 +19,14 @@ export const {
     getRunsSuccess: ['runs'],
     getRunsFailure: null,
 
+    getUsersRequest: null,
+    getUsersSuccess: ['users'],
+    getUsersFailure: null,
+
+    removeUserRequest: ['id'],
+    removeUserSuccess: ['id'],
+    removeUserFailure: ['error'],
+
     createRunReset: null,
     createRunRequest: ['run'],
     createRunSuccess: ['run'],

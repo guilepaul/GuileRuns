@@ -3,10 +3,10 @@ import { Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Header from './elements/Header'
-import Runs from './Runs';
+import Runs from './Runs'
+import Users from './Users'
 
 const Home = props => <h1>Home admin</h1>
-const Users = props => <h1>Users admin</h1>
 
 const Admin = props =>{
     if(!props.auth.isAuth){
