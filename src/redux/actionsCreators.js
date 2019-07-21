@@ -22,6 +22,10 @@ export const {
     getUsersRequest: null,
     getUsersSuccess: ['users'],
     getUsersFailure: null,
+    
+    getUserRequest: ['id'],
+    getUserSuccess: ['user'],
+    getUserFailure: null,
 
     removeUserRequest: ['id'],
     removeUserSuccess: ['id'],
@@ -40,6 +44,11 @@ export const {
     updateProfileRequest: ['user'],
     updateProfileSuccess: ['user'],
     updateProfileFailure: ['error'],
+
+    updateUserReset: null,
+    updateUserRequest: ['user'],
+    updateUserSuccess: ['user'],
+    updateUserFailure: ['error'],
 
     createProfileReset: null,
     createProfileRequest: ['user'],
